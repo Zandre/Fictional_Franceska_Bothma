@@ -1,0 +1,90 @@
+// ---------------------------------------------------------------------------
+// Tokens — Classical design system, retuned from gold to a green accent.
+// Every colour / size in the site resolves back to something in this file.
+// ---------------------------------------------------------------------------
+
+// Ground & ink -------------------------------------------------------------
+$bg:            #f4f3f0;
+$surface:       #eae9e4;
+$text:          #1e211c;
+$divider:       rgba(30, 33, 28, 0.16);
+
+// Accent: moss green, 100–900 on one perceptual lightness scale ------------
+$green: (
+  100: #eef4e8,
+  200: #d8e7cb,
+  300: #b7d3a4,
+  400: #90b97b,
+  500: #6b9b55,
+  600: #4f7d3c,
+  700: #3a6128,
+  800: #2a481d,
+  900: #1b3013
+);
+
+// Secondary: honey. Bees, pollen, sun. Used sparingly, as stroke and dots. --
+$honey: (
+  200: #f6e3bd,
+  400: #ddb063,
+  500: #c68b2c,
+  700: #8a5c14
+);
+
+// Neutral ramp -------------------------------------------------------------
+$neutral: (
+  100: #f8f6f3,
+  200: #eae8e3,
+  300: #d6d3cc,
+  400: #b9b5ac,
+  500: #9a968d,
+  600: #7c786f,
+  700: #605d55,
+  800: #44413b,
+  900: #2c2a26
+);
+
+@function green($step)   { @return map-get($green, $step); }
+@function honey($step)   { @return map-get($honey, $step); }
+@function neutral($step) { @return map-get($neutral, $step); }
+
+$accent:      green(600);
+$accent-deep: green(700);
+
+// Type ---------------------------------------------------------------------
+$font-heading: "Cormorant Garamond", Georgia, serif;
+$font-body:    "Lora", Georgia, serif;
+$font-mono:    ui-monospace, "SFMono-Regular", "Menlo", monospace;
+$heading-weight: 600;
+
+// Space — density 1.15x, same scale as the design system -------------------
+$space: (
+  1: 4.6px,
+  2: 9.2px,
+  3: 13.8px,
+  4: 18.4px,
+  6: 27.6px,
+  8: 36.8px,
+  12: 55.2px,
+  16: 73.6px,
+  24: 110.4px
+);
+@function sp($step) { @return map-get($space, $step); }
+
+// Radius, elevation --------------------------------------------------------
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 7px;
+
+$shadow-sm: 0 1px 2px rgba(44, 42, 38, 0.14);
+$shadow-md: 0 3px 10px rgba(44, 42, 38, 0.16);
+
+// Layout -------------------------------------------------------------------
+$measure: 34rem;   // comfortable justified column
+$page:    72rem;   // outer page width
+$bp-md:   860px;
+$bp-sm:   560px;
+
+// Motion -------------------------------------------------------------------
+$ease-soft:   cubic-bezier(0.33, 0.1, 0.25, 1);
+$ease-sprout: cubic-bezier(0.22, 1.4, 0.36, 1);
+$reveal-dur:  900ms;

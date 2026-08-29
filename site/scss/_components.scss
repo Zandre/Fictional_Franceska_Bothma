@@ -1,0 +1,691 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// --- Reveal on scroll -----------------------------------------------------
+.reveal {
+  opacity: 1;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity $reveal-dur $ease-soft, transform $reveal-dur $ease-sprout;
+}
+
+.js .reveal.is-visible,
+.js .is-visible .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+// Children of a revealed block arrive in sequence rather than all at once.
+.js .is-visible .reveal:nth-child(2) { transition-delay: 90ms; }
+.js .is-visible .reveal:nth-child(3) { transition-delay: 180ms; }
+.js .is-visible .reveal:nth-child(4) { transition-delay: 270ms; }
+.js .is-visible .reveal:nth-child(5) { transition-delay: 360ms; }
+
+// --- Cards ----------------------------------------------------------------
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  gap: sp(6);
+}
+
+.card {
+  position: relative;
+  padding: sp(6);
+  border: 1px solid $divider;
+  border-radius: $radius-md;
+  background: transparent;
+  overflow: hidden;
+  transition: border-color 260ms $ease-soft, transform 400ms $ease-sprout;
+}
+
+.card:hover {
+  border-color: green(400);
+  transform: translateY(-3px);
+}
+
+// A stem creeps up the left edge on hover — colour as stroke, not fill.
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 100%;
+  background: green(500);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 600ms $ease-soft;
+}
+
+.card:hover::before { transform: scaleY(1); }
+
+.card__kicker {
+  @include kicker;
+  display: block;
+  margin-bottom: sp(3);
+}
+
+.card__title {
+  font-family: $font-heading;
+  font-size: 1.3rem;
+  margin: 0 0 sp(2);
+}
+
+.card__body {
+  margin: 0;
+  color: neutral(800);
+  font-size: 0.96rem;
+}
+
+// --- Tags -----------------------------------------------------------------
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: sp(2);
+}
+
+.tag {
+  @include kicker;
+  padding: sp(1) sp(3);
+  border: 1px solid green(300);
+  border-radius: 100px;
+  color: green(700);
+  background: rgba(238, 244, 232, 0.6);
+}
+
+.tag--honey {
+  border-color: honey(200);
+  color: honey(700);
+  background: rgba(246, 227, 189, 0.4);
+}
+
+// --- Image plate ----------------------------------------------------------
+.plate {
+  padding: sp(3);
+  background: $surface;
+  border: 1px solid $divider;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-sm;
+}
+
+.plate__slot {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  padding: sp(6);
+  background-color: neutral(200);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(79, 125, 60, 0.09) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.plate__label {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  line-height: 1.7;
+  text-align: center;
+  color: neutral(700);
+  max-width: 22ch;
+}
+
+.plate__label strong {
+  display: block;
+  margin-bottom: sp(2);
+  color: green(800);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.plate__caption {
+  @include kicker;
+  display: block;
+  margin-top: sp(3);
+  color: neutral(600);
+}
+
+// --- Season toggle --------------------------------------------------------
+.seasons {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 2px;
+  border: 1px solid $divider;
+  border-radius: 100px;
+}
+
+.seasons__opt {
+  @include kicker;
+  padding: sp(1) sp(3);
+  border-radius: 100px;
+  color: neutral(600);
+  transition: background 220ms $ease-soft, color 220ms $ease-soft;
+}
+
+.seasons__opt:hover { background: green(100); }
+
+.seasons__opt[aria-pressed="true"] {
+  background: green(200);
+  color: green(900);
+}
+
+// --- Experience timeline --------------------------------------------------
+.timeline {
+  position: relative;
+  padding-left: sp(12);
+}
+
+.timeline__vine {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.timeline__vine path {
+  fill: none;
+  stroke: green(500);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  transition: stroke-dashoffset 2600ms $ease-soft;
+}
+
+.timeline__vine.is-visible path { stroke-dashoffset: 0; }
+
+.role {
+  position: relative;
+  padding-block: sp(8);
+  border-top: 1px solid $divider;
+}
+
+.role:first-of-type { border-top: 0; padding-top: 0; }
+
+// The blossom marking each role on the vine.
+.role__mark {
+  position: absolute;
+  left: calc(-1 * #{sp(12)} + 12px);
+  top: sp(8);
+  width: 18px;
+  height: 18px;
+}
+
+.role:first-of-type .role__mark { top: 6px; }
+
+.role__mark span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 0 50% 0;
+  border: 1px solid green(600);
+  transform: scale(0) rotate(0deg);
+  transform-origin: center;
+}
+
+.role__mark span:nth-child(1) { transform-origin: 50% 100%; }
+.role__mark span:nth-child(2) { transform-origin: 100% 50%; }
+.role__mark span:nth-child(3) { transform-origin: 50% 0%; }
+.role__mark span:nth-child(4) { transform-origin: 0% 50%; }
+
+.role__head {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: sp(2) sp(4);
+  width: 100%;
+  text-align: left;
+}
+
+.role__head::-webkit-details-marker { display: none; }
+
+.role__head:hover .role__title { color: green(800); }
+
+.role__title {
+  transition: color 200ms $ease-soft;
+  font-family: $font-heading;
+  font-size: clamp(1.5rem, 2.4vw, 2.05rem);
+  margin: 0;
+  flex: 1 1 18rem;
+}
+
+.role__org {
+  font-style: italic;
+  color: green(700);
+}
+
+.role__years {
+  @include kicker;
+  font-variant-numeric: tabular-nums;
+  color: neutral(600);
+}
+
+.role__chev {
+  width: 9px;
+  height: 9px;
+  border-right: 1px solid green(600);
+  border-bottom: 1px solid green(600);
+  transform: rotate(45deg);
+  transition: transform 320ms $ease-soft;
+}
+
+.role[open] .role__chev { transform: rotate(-135deg); }
+
+.role__summary {
+  margin: sp(3) 0 0;
+  max-width: 40rem;
+  color: neutral(800);
+}
+
+.role__detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: sp(8);
+  margin-top: sp(6);
+  padding-top: sp(6);
+  border-top: 1px solid $divider;
+}
+
+.role__list li {
+  position: relative;
+  padding-left: sp(6);
+  margin-bottom: sp(3);
+  color: neutral(800);
+}
+
+// Each bullet is a seedling.
+.role__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 9px;
+  height: 9px;
+  border-radius: 70% 0 70% 0;
+  background: green(400);
+  transform: rotate(-20deg);
+}
+
+.role__wins {
+  padding: sp(4) sp(6);
+  border: 1px solid green(300);
+  border-radius: $radius-md;
+  background: rgba(238, 244, 232, 0.5);
+}
+
+.role__wins h4 {
+  @include kicker;
+  margin-bottom: sp(3);
+}
+
+.role__wins li {
+  font-size: 0.94rem;
+  padding-bottom: sp(3);
+  margin-bottom: sp(3);
+  border-bottom: 1px solid rgba(79, 125, 60, 0.18);
+}
+
+.role__wins li:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+// --- Skills garden -------------------------------------------------------
+.garden {
+  display: flex;
+  flex-direction: column;
+  gap: sp(4);
+}
+
+.bed {
+  position: relative;
+  padding: sp(6) sp(6) 0;
+  border: 1px solid $divider;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.bed__label {
+  @include kicker;
+  display: flex;
+  align-items: center;
+  gap: sp(3);
+  margin-bottom: sp(4);
+}
+
+.bed__label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: $divider;
+}
+
+.bed__row {
+  display: flex;
+  align-items: flex-end;
+  gap: sp(4);
+  flex-wrap: wrap;
+  min-height: 132px;
+  padding-bottom: sp(6);
+  border-bottom: 2px solid green(700);
+}
+
+.plant {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: sp(2);
+  width: 8.5rem;
+  min-height: 118px;
+  padding: 0;
+  text-align: center;
+}
+
+.plant__stalk {
+  position: relative;
+  width: 2px;
+  height: 44px;
+  background: green(600);
+  transform-origin: bottom center;
+  transform: scaleY(0);
+}
+
+.js .plant__stalk { transition: transform 900ms $ease-sprout; }
+.bed.is-visible .plant__stalk { transform: scaleY(1); }
+
+.plant__stalk::before,
+.plant__stalk::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 8px;
+  border-radius: 100% 0 100% 0;
+  background: green(400);
+  opacity: 0;
+  transition: opacity 500ms $ease-soft 400ms;
+}
+
+.plant__stalk::before { left: 1px; top: 14px; transform: rotate(-18deg); }
+.plant__stalk::after  { right: 1px; top: 26px; transform: rotate(162deg); }
+
+.bed.is-visible .plant__stalk::before,
+.bed.is-visible .plant__stalk::after { opacity: 1; }
+
+.plant__bloom {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-bottom: -6px;
+  border-radius: 50%;
+  border: 1.5px solid green(600);
+  background: $bg;
+  transform: scale(0);
+  transition: transform 700ms $ease-sprout 500ms, background 220ms $ease-soft;
+}
+
+.bed.is-visible .plant__bloom { transform: scale(1); }
+
+.plant__bloom::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: honey(400);
+}
+
+.plant:hover .plant__bloom { background: green(100); }
+.plant[aria-pressed="true"] .plant__bloom { background: green(200); }
+
+.plant__name {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: neutral(800);
+  opacity: 0;
+  transition: opacity 500ms $ease-soft 800ms;
+}
+
+.bed.is-visible .plant__name { opacity: 1; }
+.plant:hover .plant__name { color: green(800); }
+
+.garden-note {
+  @include kicker;
+  display: block;
+  margin-top: sp(6);
+  color: neutral(600);
+}
+
+.vine-rule {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-block: sp(8);
+}
+
+// --- Root plate: a soil cross-section closing a text section --------------
+.rootplate {
+  position: relative;
+  height: 172px;
+  margin: sp(16) 0 0;
+  border-top: 1px solid green(700);
+  background-image: linear-gradient(180deg, rgba(58, 97, 40, 0.07), rgba(58, 97, 40, 0.015) 62%, transparent);
+}
+
+.rootplate__grass {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -22px;
+  height: 22px;
+  background-repeat: repeat-x;
+  background-position: 0 100%, 0 100%, 0 100%;
+  background-size: 300% 100%, 300% 70%, 300% 46%;
+  background-image:
+    repeating-linear-gradient(93deg, rgba(58, 97, 40, 0.34) 0 1.4px, transparent 1.4px 19px),
+    repeating-linear-gradient(86deg, rgba(79, 125, 60, 0.3) 0 1.4px, transparent 1.4px 13px),
+    repeating-linear-gradient(98deg, rgba(107, 155, 85, 0.3) 0 1.4px, transparent 1.4px 8px);
+  -webkit-mask-image: linear-gradient(to top, #000 10%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 10%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
+  animation: wind 22s ease-in-out infinite;
+}
+
+.rootplate__horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: $divider;
+}
+
+.rootplate__horizon--1 { top: 44px; }
+.rootplate__horizon--2 { top: 92px; opacity: 0.7; }
+.rootplate__horizon--3 { top: 138px; opacity: 0.45; }
+
+.rootplate__roots {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.rootplate__roots path {
+  fill: none;
+  stroke: green(600);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  transition: stroke-dashoffset 2400ms $ease-soft;
+}
+
+.rootplate.is-visible .rootplate__roots path { stroke-dashoffset: 0; }
+.rootplate.is-visible path:nth-of-type(2) { transition-delay: 180ms; }
+.rootplate.is-visible path:nth-of-type(3) { transition-delay: 320ms; }
+.rootplate.is-visible path:nth-of-type(4) { transition-delay: 480ms; }
+.rootplate.is-visible path:nth-of-type(5) { transition-delay: 620ms; }
+.rootplate.is-visible path:nth-of-type(6) { transition-delay: 800ms; }
+.rootplate.is-visible path:nth-of-type(7) { transition-delay: 940ms; }
+
+.rootplate__caption {
+  position: absolute;
+  right: sp(4);
+  top: sp(3);
+  max-width: 19rem;
+  margin: 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  text-align: right;
+  color: green(800);
+}
+
+.rootplate__depth {
+  @include kicker;
+  position: absolute;
+  left: sp(2);
+  font-size: 0.6rem;
+  color: neutral(600);
+  font-variant-numeric: tabular-nums;
+}
+
+.rootplate__depth--1 { top: 50px; }
+.rootplate__depth--2 { top: 98px; }
+.rootplate__depth--3 { top: 144px; }
+
+@include below($bp-md) {
+  .rootplate { height: 138px; }
+  .rootplate__caption { max-width: 12rem; font-size: 0.85rem; }
+}
+
+// --- Interests ------------------------------------------------------------
+.interests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
+  gap: sp(8);
+}
+
+.interest {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $divider;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.interest__stage {
+  position: relative;
+  height: 168px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(238, 244, 232, 0.9), rgba(216, 231, 203, 0.55));
+  border-bottom: 1px solid $divider;
+}
+
+.interest__text { padding: sp(6); }
+
+.interest__title {
+  font-family: $font-heading;
+  font-size: 1.4rem;
+  margin: 0 0 sp(2);
+}
+
+.interest__body {
+  margin: 0;
+  font-size: 0.96rem;
+  color: neutral(800);
+}
+
+// --- Ambitions ------------------------------------------------------------
+.ambitions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
+  gap: sp(8);
+}
+
+.ambition {
+  display: flex;
+  flex-direction: column;
+  gap: sp(4);
+  padding-top: sp(6);
+  border-top: 1px solid $divider;
+}
+
+.ambition__num {
+  @include kicker;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.66rem;
+}
+
+.ambition__title {
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.ambition__body {
+  margin: 0;
+  color: neutral(800);
+  font-size: 0.96rem;
+}
+
+.closing {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.closing p {
+  font-family: $font-heading;
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  line-height: 1.35;
+  font-style: italic;
+  color: green(800);
+}
+
+.closing__sig {
+  @include kicker;
+  color: neutral(600);
+}
+
+@include below($bp-md) {
+  .role__detail { grid-template-columns: minmax(0, 1fr); }
+  .timeline { padding-left: sp(8); }
+  .role__mark { left: calc(-1 * #{sp(8)} + 10px); }
+  .plant { width: 7rem; }
+}
+
+@include below($bp-md) {
+  /* Touch targets: nothing interactive falls below 44px. */
+  .seasons { padding: 3px; }
+  .seasons__opt { min-height: 40px; display: flex; align-items: center; }
+  .nav-toggle { width: 2.75rem; height: 2.75rem; }
+  .nav__link { min-height: 46px; display: flex; align-items: center; }
+  .plant { min-height: 132px; }
+  .tag { padding: sp(2) sp(3); }
+  .role__head { padding-block: sp(2); }
+  .rootplate { height: 150px; }
+  .rootplate__caption { max-width: 11rem; }
+}
+
+@include below($bp-sm) {
+  .brand__role { display: none; }
+  .brand__name { font-size: 1.15rem; }
+  .seasons__opt { padding-inline: sp(2); font-size: 0.62rem; }
+  .bed { padding-inline: sp(4); }
+  .plant { width: calc(50% - #{sp(2)}); }
+  .interest__text { padding: sp(4); }
+  .card { padding: sp(4); }
+  .role__wins { padding: sp(4); }
+  .rootplate__caption { display: none; }
+  .rootplate__depth { font-size: 0.55rem; }
+}

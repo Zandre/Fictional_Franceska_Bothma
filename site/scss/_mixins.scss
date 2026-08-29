@@ -1,0 +1,50 @@
+@use "tokens" as *;
+
+// Justified editorial column, per the Classical direction.
+@mixin measure {
+  max-width: $measure;
+  text-align: justify;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+// Hairline rule — structure is drawn with borders, never fills.
+@mixin hairline($side: bottom) {
+  border-#{$side}: 1px solid $divider;
+}
+
+// Small caps kicker with tabular figures.
+@mixin kicker {
+  font-family: $font-body;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-feature-settings: "tnum";
+  color: green(700);
+}
+
+@mixin page-shell {
+  width: 100%;
+  max-width: $page;
+  margin-inline: auto;
+  padding-inline: sp(6);
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 2px;
+  }
+}
+
+// Everything decorative sits behind this guard so the site stays usable
+// for anyone who has asked their system to calm down.
+@mixin motion-safe {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin below($bp) {
+  @media (max-width: $bp) { @content; }
+}

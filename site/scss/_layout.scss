@@ -1,0 +1,303 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// --- Header ---------------------------------------------------------------
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(244, 243, 240, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid $divider;
+}
+
+.site-header__inner {
+  @include page-shell;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: sp(3) sp(6);
+  min-height: 4.6rem;
+  padding-block: sp(2);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-right: auto;
+  border: 0;
+  color: inherit;
+}
+
+.brand:hover { color: green(800); }
+
+.brand__name {
+  font-family: $font-heading;
+  font-size: 1.3rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.brand__role {
+  @include kicker;
+  font-size: 0.62rem;
+  color: neutral(600);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: sp(4);
+}
+
+.nav__link {
+  @include kicker;
+  position: relative;
+  border: 0;
+  padding-block: sp(2);
+  color: neutral(700);
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background: green(600);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 280ms $ease-soft;
+}
+
+.nav__link:hover { color: green(800); }
+.nav__link:hover::after { transform: scaleX(1); }
+
+.nav__link.is-current { color: green(800); }
+.nav__link.is-current::after { transform: scaleX(1); }
+
+// A leaf that unfurls beside the current page.
+.nav__link.is-current::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -4px;
+  background: green(500);
+  border-radius: 70% 0 70% 0;
+  transform: rotate(-20deg);
+  animation: leaf-unfurl 700ms $ease-sprout both;
+}
+
+.nav-toggle {
+  display: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid $divider;
+  border-radius: $radius-md;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: $text;
+  transition: transform 240ms $ease-soft, opacity 240ms $ease-soft;
+}
+
+// Scroll-progress vine along the header's lower edge.
+.growline {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+  background: linear-gradient(90deg, #{green(400)}, #{green(600)}, #{honey(400)});
+}
+
+// --- Page shell -----------------------------------------------------------
+.page {
+  @include page-shell;
+  padding-bottom: sp(24);
+}
+
+.section {
+  padding-block: sp(16);
+  border-top: 1px solid $divider;
+}
+
+.section:first-of-type { border-top: 0; }
+
+.section__head {
+  display: flex;
+  flex-direction: column;
+  gap: sp(2);
+  margin-bottom: sp(8);
+}
+
+.section__kicker { @include kicker; }
+
+.section__lede {
+  font-size: 1.15rem;
+  color: neutral(800);
+  max-width: 42rem;
+  margin: 0;
+}
+
+.prose { @include measure; }
+.prose p:last-child { margin-bottom: 0; }
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: sp(8) sp(12);
+}
+
+.hr {
+  height: 1px;
+  background: $divider;
+  border: 0;
+  margin-block: sp(12);
+}
+
+// --- Hero -----------------------------------------------------------------
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: end;
+  gap: sp(12);
+  padding-block: sp(16) sp(12);
+}
+
+.hero__eyebrow {
+  @include kicker;
+  display: block;
+  margin-bottom: sp(4);
+}
+
+.hero__title { margin-bottom: sp(4); }
+
+.hero__title em {
+  font-style: italic;
+  color: green(700);
+}
+
+.hero__lede {
+  font-size: 1.2rem;
+  max-width: 30rem;
+  color: neutral(800);
+  margin-bottom: sp(6);
+}
+
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: sp(2) sp(6);
+  padding-top: sp(4);
+  border-top: 1px solid $divider;
+}
+
+.hero__fact {
+  @include kicker;
+  color: neutral(600);
+}
+
+.hero__fact strong {
+  display: block;
+  font-family: $font-heading;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: $text;
+}
+
+// --- Footer ---------------------------------------------------------------
+.site-footer {
+  border-top: 1px solid $divider;
+  padding-block: sp(12);
+  background: linear-gradient(180deg, transparent, rgba(216, 231, 203, 0.35));
+}
+
+.site-footer__inner {
+  @include page-shell;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: sp(6);
+}
+
+.site-footer__note {
+  @include kicker;
+  color: neutral(600);
+  max-width: 26rem;
+  line-height: 1.9;
+}
+
+// --- Responsive -----------------------------------------------------------
+@include below($bp-md) {
+  .site-header__inner { padding-inline: sp(4); }
+  .section { padding-block: sp(12); }
+  .page { padding-bottom: sp(16); }
+  .hero { padding-block: sp(8) sp(8); gap: sp(8); }
+  .section__head { margin-bottom: sp(6); }
+  .columns { gap: sp(6); }
+
+  /* iOS Safari ignores background-attachment: fixed and stretches the washes
+     over the whole document; keep the weave, drop the washes. */
+  body {
+    background-attachment: scroll;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(58, 97, 40, 0.035) 0 1px, transparent 1px 4px),
+      repeating-linear-gradient(90deg, rgba(58, 97, 40, 0.028) 0 1px, transparent 1px 4px),
+      radial-gradient(30rem 26rem at 50% 0%, rgba(183, 211, 164, 0.3), transparent 70%);
+  }
+  .page { padding-inline: sp(4); }
+  .site-footer__inner { padding-inline: sp(4); }
+
+  .nav-toggle { display: flex; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: sp(2) sp(4) sp(4);
+    background: $bg;
+    border-bottom: 1px solid $divider;
+    display: none;
+  }
+
+  .nav.is-open { display: flex; }
+
+  .nav__link {
+    width: 100%;
+    padding-block: sp(3);
+    border-bottom: 1px solid $divider;
+  }
+
+  .nav__link.is-current::before { display: none; }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .columns { grid-template-columns: minmax(0, 1fr); }
+
+  .prose { text-align: left; hyphens: manual; }
+}
