@@ -1,4 +1,4 @@
-# Franceska Bothma — online profile
+# Franciska Bothma — online profile
 
 A five-page static profile. No framework, no build step required, no data collected.
 

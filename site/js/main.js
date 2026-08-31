@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Franceska Bothma — online profile
+   Franciska Bothma — online profile
    One file, no dependencies. Everything here is presentation only: the site
    collects nothing, sends nothing and stores nothing except the chosen season.
    --------------------------------------------------------------------------- */
