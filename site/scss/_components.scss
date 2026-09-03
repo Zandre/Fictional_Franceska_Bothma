@@ -174,6 +174,31 @@
   color: green(900);
 }
 
+// --- Language switch --------------------------------------------------------
+.langs {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 2px;
+  border: 1px solid $divider;
+  border-radius: 100px;
+}
+
+.langs__opt {
+  @include kicker;
+  padding: sp(1) sp(3);
+  border-radius: 100px;
+  color: neutral(600);
+  transition: background 220ms $ease-soft, color 220ms $ease-soft;
+}
+
+.langs__opt:hover { background: green(100); }
+
+.langs__opt[aria-pressed="true"] {
+  background: green(200);
+  color: green(900);
+}
+
 // --- Experience timeline --------------------------------------------------
 .timeline {
   position: relative;
@@ -668,6 +693,8 @@
   /* Touch targets: nothing interactive falls below 44px. */
   .seasons { padding: 3px; }
   .seasons__opt { min-height: 40px; display: flex; align-items: center; }
+  .langs { padding: 3px; }
+  .langs__opt { min-height: 40px; display: flex; align-items: center; }
   .nav-toggle { width: 2.75rem; height: 2.75rem; }
   .nav__link { min-height: 46px; display: flex; align-items: center; }
   .plant { min-height: 132px; }
@@ -681,6 +708,7 @@
   .brand__role { display: none; }
   .brand__name { font-size: 1.15rem; }
   .seasons__opt { padding-inline: sp(2); font-size: 0.62rem; }
+  .langs__opt { padding-inline: sp(2); font-size: 0.62rem; }
   .bed { padding-inline: sp(4); }
   .plant { width: calc(50% - #{sp(2)}); }
   .interest__text { padding: sp(4); }

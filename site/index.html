@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Profile — Franciska Bothma</title>
-  <meta name="description" content="Franciska Bothma — sustainability, environmental conservation and ethical research in the Netherlands.">
+  <title data-i18n="index.title">Profile — Franciska Bothma</title>
+  <meta name="description" content="Franciska Bothma — sustainability, environmental conservation and ethical research in the Netherlands." data-i18n-attrs="content:index.metaDescription">
   <meta name="color-scheme" content="light">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,31 +12,37 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body data-season="spring">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="common.skipLink">Skip to content</a>
 
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="index.html">
         <span class="brand__name">Franciska Bothma</span>
-        <span class="brand__role">Sustainability &amp; ethical research</span>
+        <span class="brand__role" data-i18n="common.brandRole">Sustainability &amp; ethical research</span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu" data-i18n-attrs="aria-label:common.navToggleAria">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="nav" id="nav" aria-label="Profile sections">
-        <a class="nav__link is-current" href="index.html" aria-current="page">Profile</a>
-        <a class="nav__link" href="experience.html">Experience</a>
-        <a class="nav__link" href="interests.html">Interests</a>
-        <a class="nav__link" href="skills.html">Skills</a>
-        <a class="nav__link" href="ambitions.html">Ambitions</a>
+      <nav class="nav" id="nav" aria-label="Profile sections" data-i18n-attrs="aria-label:common.navAriaLabel">
+        <a class="nav__link is-current" href="index.html" aria-current="page" data-i18n="common.navProfile">Profile</a>
+        <a class="nav__link" href="experience.html" data-i18n="common.navExperience">Experience</a>
+        <a class="nav__link" href="interests.html" data-i18n="common.navInterests">Interests</a>
+        <a class="nav__link" href="skills.html" data-i18n="common.navSkills">Skills</a>
+        <a class="nav__link" href="ambitions.html" data-i18n="common.navAmbitions">Ambitions</a>
       </nav>
 
-      <div class="seasons" role="group" aria-label="Change the season">
-        <button class="seasons__opt" type="button" data-season="spring" aria-pressed="true">Spring</button>
-        <button class="seasons__opt" type="button" data-season="summer" aria-pressed="false">Summer</button>
-        <button class="seasons__opt" type="button" data-season="autumn" aria-pressed="false">Autumn</button>
+      <div class="seasons" role="group" aria-label="Change the season" data-i18n-attrs="aria-label:common.seasonsAria">
+        <button class="seasons__opt" type="button" data-season="spring" aria-pressed="true" data-i18n="common.seasonSpring">Spring</button>
+        <button class="seasons__opt" type="button" data-season="summer" aria-pressed="false" data-i18n="common.seasonSummer">Summer</button>
+        <button class="seasons__opt" type="button" data-season="autumn" aria-pressed="false" data-i18n="common.seasonAutumn">Autumn</button>
+      </div>
+
+      <div class="langs" role="group" aria-label="Change the language" data-i18n-attrs="aria-label:common.langAria">
+        <button class="langs__opt" type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button class="langs__opt" type="button" data-lang="nl" aria-pressed="false">NL</button>
+        <button class="langs__opt" type="button" data-lang="af" aria-pressed="false">AF</button>
       </div>
     </div>
     <span class="growline" aria-hidden="true"></span>
@@ -45,17 +51,17 @@
   <main class="page" id="main">
     <section class="hero">
       <div class="hero__text">
-        <span class="hero__eyebrow">Sustainability · Ethical research · The Netherlands</span>
+        <span class="hero__eyebrow" data-i18n="index.heroEyebrow">Sustainability · Ethical research · The Netherlands</span>
         <h1 class="hero__title">Franciska<br><em>Bothma</em></h1>
-        <p class="hero__lede">
+        <p class="hero__lede" data-i18n="index.heroLede">
           Ten years helping organisations shrink their footprint without shrinking
           their honesty. I work where evidence, ethics and food systems meet.
         </p>
         <div class="hero__facts">
-          <span class="hero__fact">Based in<strong>The Netherlands</strong></span>
-          <span class="hero__fact">Field<strong>Sustainable food systems</strong></span>
-          <span class="hero__fact">In the field<strong>10 years</strong></span>
-          <span class="hero__fact">Age<strong>31</strong></span>
+          <span class="hero__fact"><span data-i18n="index.factBasedLabel">Based in</span><strong data-i18n="index.factBasedValue">The Netherlands</strong></span>
+          <span class="hero__fact"><span data-i18n="index.factFieldLabel">Field</span><strong data-i18n="index.factFieldValue">Sustainable food systems</strong></span>
+          <span class="hero__fact"><span data-i18n="index.factYearsLabel">In the field</span><strong data-i18n="index.factYearsValue">10 years</strong></span>
+          <span class="hero__fact"><span data-i18n="index.factAgeLabel">Age</span><strong>31</strong></span>
         </div>
       </div>
 
@@ -75,9 +81,9 @@
 
     <section class="section" data-reveal>
       <div class="section__head reveal">
-        <span class="section__kicker">About</span>
-        <h2>Evidence first, then everything else</h2>
-        <p class="section__lede">
+        <span class="section__kicker" data-i18n="index.aboutKicker">About</span>
+        <h2 data-i18n="index.aboutH2">Evidence first, then everything else</h2>
+        <p class="section__lede" data-i18n="index.aboutLede">
           I coordinate sustainability work that has to survive scrutiny — from a
           client&rsquo;s board, a research ethics panel, or a grower who has farmed the
           same field for thirty years.
@@ -86,13 +92,13 @@
 
       <div class="columns">
         <div class="prose reveal">
-          <p>
+          <p data-i18n="index.aboutP1">
             My route in was practical rather than theoretical: nature restoration
             weekends and a community garden plot, long before it was a job title.
             That grounding still shapes how I work — I trust what can be measured
             on the ground more than what looks good in a slide deck.
           </p>
-          <p>
+          <p data-i18n="index.aboutP2">
             Since then I have worked across research, project coordination and
             operations. The common thread is translation: turning environmental
             data into decisions people can act on, and turning the concerns of
@@ -101,12 +107,12 @@
           </p>
         </div>
         <div class="prose reveal">
-          <p>
+          <p data-i18n="index.aboutP3">
             I care about the ethics of the method as much as the outcome. Consent,
             transparency about who benefits, and honesty about uncertainty are not
             paperwork — they are what makes a finding worth acting on.
           </p>
-          <p>
+          <p data-i18n="index.aboutP4">
             The work I want most sits at the intersection of regenerative
             agriculture, biodiversity and climate resilience: the places where a
             better food system and a healthier landscape turn out to be the same
@@ -120,9 +126,9 @@
         <span class="rootplate__horizon rootplate__horizon--1" aria-hidden="true"></span>
         <span class="rootplate__horizon rootplate__horizon--2" aria-hidden="true"></span>
         <span class="rootplate__horizon rootplate__horizon--3" aria-hidden="true"></span>
-        <span class="rootplate__depth rootplate__depth--1" aria-hidden="true">Topsoil</span>
-        <span class="rootplate__depth rootplate__depth--2" aria-hidden="true">Subsoil</span>
-        <span class="rootplate__depth rootplate__depth--3" aria-hidden="true">Substrate</span>
+        <span class="rootplate__depth rootplate__depth--1" aria-hidden="true" data-i18n="index.rootplateTopsoil">Topsoil</span>
+        <span class="rootplate__depth rootplate__depth--2" aria-hidden="true" data-i18n="index.rootplateSubsoil">Subsoil</span>
+        <span class="rootplate__depth rootplate__depth--3" aria-hidden="true" data-i18n="index.rootplateSubstrate">Substrate</span>
         <svg class="rootplate__roots" viewBox="0 0 900 172" preserveAspectRatio="none" aria-hidden="true" focusable="false">
           <path vector-effect="non-scaling-stroke" d="M450 0 C 452 44, 446 96, 453 172" />
           <path vector-effect="non-scaling-stroke" d="M450 4 C 428 42, 358 72, 298 124" />
@@ -132,37 +138,37 @@
           <path vector-effect="non-scaling-stroke" d="M450 22 C 438 64, 392 116, 374 172" />
           <path vector-effect="non-scaling-stroke" d="M450 22 C 464 66, 514 118, 530 172" />
         </svg>
-        <figcaption class="rootplate__caption">Most of the work is below the line.</figcaption>
+        <figcaption class="rootplate__caption" data-i18n="index.rootplateCaption">Most of the work is below the line.</figcaption>
       </figure>
     </section>
 
     <section class="section" data-reveal>
       <div class="section__head reveal">
-        <span class="section__kicker">How I work</span>
-        <h2>Three commitments</h2>
+        <span class="section__kicker" data-i18n="index.workKicker">How I work</span>
+        <h2 data-i18n="index.workH2">Three commitments</h2>
       </div>
 
       <div class="cards">
         <article class="card reveal">
           <span class="card__kicker">01</span>
-          <h3 class="card__title">Measure before you promise</h3>
-          <p class="card__body">
+          <h3 class="card__title" data-i18n="index.card1Title">Measure before you promise</h3>
+          <p class="card__body" data-i18n="index.card1Body">
             A footprint assessment is only useful if the baseline is honest. I would
             rather report an uncomfortable number than a flattering estimate.
           </p>
         </article>
         <article class="card reveal">
           <span class="card__kicker">02</span>
-          <h3 class="card__title">Ethics is a method, not a form</h3>
-          <p class="card__body">
+          <h3 class="card__title" data-i18n="index.card2Title">Ethics is a method, not a form</h3>
+          <p class="card__body" data-i18n="index.card2Body">
             Research standards, informed consent and clear data handling belong at
             the design stage — not in an appendix written afterwards.
           </p>
         </article>
         <article class="card reveal">
           <span class="card__kicker">03</span>
-          <h3 class="card__title">Plan past the funding cycle</h3>
-          <p class="card__body">
+          <h3 class="card__title" data-i18n="index.card3Title">Plan past the funding cycle</h3>
+          <p class="card__body" data-i18n="index.card3Body">
             Soil, hedgerows and trust all improve on a longer timescale than a
             project plan. Design the handover on day one.
           </p>
@@ -172,46 +178,46 @@
 
     <section class="section" data-reveal>
       <div class="section__head reveal">
-        <span class="section__kicker">Focus areas</span>
-        <h2>Where my attention goes</h2>
+        <span class="section__kicker" data-i18n="index.focusKicker">Focus areas</span>
+        <h2 data-i18n="index.focusH2">Where my attention goes</h2>
       </div>
       <div class="tags reveal">
-        <span class="tag">Regenerative agriculture</span>
-        <span class="tag">Sustainable food systems</span>
-        <span class="tag">Biodiversity protection</span>
-        <span class="tag">Climate resilience</span>
-        <span class="tag">Circular economy</span>
-        <span class="tag">Responsible sourcing</span>
-        <span class="tag tag--honey">Ethical research practice</span>
-        <span class="tag tag--honey">Stakeholder engagement</span>
+        <span class="tag" data-i18n="index.tag1">Regenerative agriculture</span>
+        <span class="tag" data-i18n="index.tag2">Sustainable food systems</span>
+        <span class="tag" data-i18n="index.tag3">Biodiversity protection</span>
+        <span class="tag" data-i18n="index.tag4">Climate resilience</span>
+        <span class="tag" data-i18n="index.tag5">Circular economy</span>
+        <span class="tag" data-i18n="index.tag6">Responsible sourcing</span>
+        <span class="tag tag--honey" data-i18n="index.tag7">Ethical research practice</span>
+        <span class="tag tag--honey" data-i18n="index.tag8">Stakeholder engagement</span>
       </div>
     </section>
 
     <section class="section" data-reveal>
       <div class="section__head reveal">
-        <span class="section__kicker">Read on</span>
-        <h2>Four more rooms in this garden</h2>
+        <span class="section__kicker" data-i18n="index.readonKicker">Read on</span>
+        <h2 data-i18n="index.readonH2">Four more rooms in this garden</h2>
       </div>
       <div class="cards">
         <a class="card reveal" href="experience.html">
-          <span class="card__kicker">Experience</span>
-          <h3 class="card__title">Ten years, three organisations</h3>
-          <p class="card__body">Consulting, research and community agriculture — with the detail behind each.</p>
+          <span class="card__kicker" data-i18n="index.readonCard1Kicker">Experience</span>
+          <h3 class="card__title" data-i18n="index.readonCard1Title">Ten years, three organisations</h3>
+          <p class="card__body" data-i18n="index.readonCard1Body">Consulting, research and community agriculture — with the detail behind each.</p>
         </a>
         <a class="card reveal" href="interests.html">
-          <span class="card__kicker">Interests</span>
-          <h3 class="card__title">Open water, long roads, a full plot</h3>
-          <p class="card__body">Endurance swimming, bicycle touring, and a garden that feeds most of the summer.</p>
+          <span class="card__kicker" data-i18n="index.readonCard2Kicker">Interests</span>
+          <h3 class="card__title" data-i18n="index.readonCard2Title">Open water, long roads, a full plot</h3>
+          <p class="card__body" data-i18n="index.readonCard2Body">Endurance swimming, bicycle touring, and a garden that feeds most of the summer.</p>
         </a>
         <a class="card reveal" href="skills.html">
-          <span class="card__kicker">Skills</span>
-          <h3 class="card__title">A garden of five beds</h3>
-          <p class="card__body">Click any bloom to see what it means in practice.</p>
+          <span class="card__kicker" data-i18n="index.readonCard3Kicker">Skills</span>
+          <h3 class="card__title" data-i18n="index.readonCard3Title">A garden of five beds</h3>
+          <p class="card__body" data-i18n="index.readonCard3Body">Click any bloom to see what it means in practice.</p>
         </a>
         <a class="card reveal" href="ambitions.html">
-          <span class="card__kicker">Ambitions</span>
-          <h3 class="card__title">What I am growing towards</h3>
-          <p class="card__body">Specialising deeper, and bridging research, policy and the field.</p>
+          <span class="card__kicker" data-i18n="index.readonCard4Kicker">Ambitions</span>
+          <h3 class="card__title" data-i18n="index.readonCard4Title">What I am growing towards</h3>
+          <p class="card__body" data-i18n="index.readonCard4Body">Specialising deeper, and bridging research, policy and the field.</p>
         </a>
       </div>
     </section>
@@ -223,20 +229,21 @@
       <span class="meadow__seed"></span><span class="meadow__seed"></span><span class="meadow__seed"></span><span class="meadow__seed"></span>
     </div>
     <div class="site-footer__inner">
-      <p class="site-footer__note">
+      <p class="site-footer__note" data-i18n-html="common.footerNote">
         Franciska Bothma · The Netherlands<br>
         A profile, nothing more — no forms, no mailing list, no tracking.
         The only thing stored on your device is which season you picked.
       </p>
-      <nav class="tags" aria-label="Profile sections">
-        <a class="tag" href="experience.html">Experience</a>
-        <a class="tag" href="interests.html">Interests</a>
-        <a class="tag" href="skills.html">Skills</a>
-        <a class="tag" href="ambitions.html">Ambitions</a>
+      <nav class="tags" aria-label="Profile sections" data-i18n-attrs="aria-label:common.navAriaLabel">
+        <a class="tag" href="experience.html" data-i18n="common.navExperience">Experience</a>
+        <a class="tag" href="interests.html" data-i18n="common.navInterests">Interests</a>
+        <a class="tag" href="skills.html" data-i18n="common.navSkills">Skills</a>
+        <a class="tag" href="ambitions.html" data-i18n="common.navAmbitions">Ambitions</a>
       </nav>
     </div>
   </footer>
 
+  <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

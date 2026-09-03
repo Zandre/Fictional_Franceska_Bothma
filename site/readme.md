@@ -20,6 +20,7 @@ A five-page static profile. No framework, no build step required, no data collec
         _animations.scss  Every keyframe and every piece of scenery
         main.scss         Entry point
       js/main.js          Nav, scroll reveals, season switch, garden clicks
+      js/i18n.js          Language switch and every translated string (EN/NL/AF)
 
 ## Editing the styles
 
@@ -69,5 +70,20 @@ Everything is switched off under `prefers-reduced-motion: reduce`.
 ### Seasons
 
 The Spring / Summer / Autumn control in the header re-tints the foliage,
-crops and falling petals. It is the only thing the site stores (one
-`localStorage` key, `fb-season`).
+crops and falling petals. It is stored under the `localStorage` key
+`fb-season`.
+
+### Languages
+
+The EN / NL / AF control next to it swaps every string on the page — copy,
+nav, meta title and description, aria labels, and the garden's skill notes.
+English is the default; the choice is stored under `fb-lang` and carries
+across pages. All translations live inline in `js/i18n.js` (no fetch, so the
+site keeps working when opened straight from disk): each element to
+translate carries a `data-i18n` (text), `data-i18n-html` (text with inline
+markup, e.g. a `<br>`), or `data-i18n-attrs` (one or more `attr:key` pairs)
+attribute naming a key in that file. `js/i18n.js` runs before `main.js`, so
+anything `main.js` reads off the DOM at setup already reflects the chosen
+language. Add a fourth language by adding another language code to each
+translation table and a matching button in the `.langs` control on every
+page.

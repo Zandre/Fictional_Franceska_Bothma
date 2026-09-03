@@ -636,6 +636,35 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #1b3013;
 }
 
+.langs {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 2px;
+  border: 1px solid rgba(30, 33, 28, 0.16);
+  border-radius: 100px;
+}
+
+.langs__opt {
+  font-family: "Lora", Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-feature-settings: "tnum";
+  color: #3a6128;
+  padding: 4.6px 13.8px;
+  border-radius: 100px;
+  color: #7c786f;
+  transition: background 220ms cubic-bezier(0.33, 0.1, 0.25, 1), color 220ms cubic-bezier(0.33, 0.1, 0.25, 1);
+}
+
+.langs__opt:hover { background: #eef4e8; }
+
+.langs__opt[aria-pressed="true"] {
+  background: #d8e7cb;
+  color: #1b3013;
+}
+
 .timeline {
   position: relative;
   padding-left: 55.2px;
@@ -1158,6 +1187,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* Touch targets: nothing interactive falls below 44px. */
   .seasons { padding: 3px; }
   .seasons__opt { min-height: 40px; display: flex; align-items: center; }
+  .langs { padding: 3px; }
+  .langs__opt { min-height: 40px; display: flex; align-items: center; }
   .nav-toggle { width: 2.75rem; height: 2.75rem; }
   .nav__link { min-height: 46px; display: flex; align-items: center; }
   .plant { min-height: 132px; }
@@ -1171,6 +1202,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .brand__role { display: none; }
   .brand__name { font-size: 1.15rem; }
   .seasons__opt { padding-inline: 9.2px; font-size: 0.62rem; }
+  .langs__opt { padding-inline: 9.2px; font-size: 0.62rem; }
   .bed { padding-inline: 18.4px; }
   .plant { width: calc(50% - 9.2px); }
   .interest__text { padding: 18.4px; }
