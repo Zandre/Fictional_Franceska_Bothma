@@ -122,6 +122,15 @@
     });
   });
 
+  /* --- Hero video: respect reduced motion -------------------------------- */
+  var heroVideo = document.querySelector('.hero__video');
+
+  if (heroVideo && calm) {
+    heroVideo.pause();
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.setAttribute('controls', '');
+  }
+
   /* --- Let a bee land where you point ----------------------------------- */
   Array.prototype.forEach.call(document.querySelectorAll('.flower'), function (flower) {
     flower.addEventListener('mouseenter', function () {

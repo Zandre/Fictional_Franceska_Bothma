@@ -142,6 +142,14 @@
   background: linear-gradient(180deg, rgba(238, 244, 232, 0.95) 0%, rgba(216, 231, 203, 0.5) 62%, rgba(183, 211, 164, 0.35) 100%);
 }
 
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .sun {
   position: absolute;
   top: 15%;
