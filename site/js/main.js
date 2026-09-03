@@ -99,15 +99,19 @@
     });
   }
 
-  /* --- Skills garden: click a bloom, read what it means ------------------ */
+  /* --- Skills garden: click a bloom, read what it means ------------------
+     The idle text lives in the note's data-idle attribute (kept current by
+     i18n.js on language switch) rather than a value captured once here, so
+     switching language after a click still resets to the right idle copy. */
   Array.prototype.forEach.call(document.querySelectorAll('.bed'), function (bed) {
     var note = bed.querySelector('.garden-note');
-    var idle = note ? note.textContent : '';
+    if (note && !note.hasAttribute('data-idle')) note.setAttribute('data-idle', note.textContent);
 
     bed.addEventListener('click', function (e) {
       var plant = e.target.closest('.plant');
       if (!plant || !note) return;
 
+      var idle = note.getAttribute('data-idle') || '';
       var already = plant.getAttribute('aria-pressed') === 'true';
       Array.prototype.forEach.call(bed.querySelectorAll('.plant'), function (p) {
         p.setAttribute('aria-pressed', 'false');
