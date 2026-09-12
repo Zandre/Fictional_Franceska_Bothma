@@ -65,6 +65,16 @@
           <span class="hero__fact"><span data-i18n="index.factYearsLabel">In the field</span><strong data-i18n="index.factYearsValue">10 years</strong></span>
           <span class="hero__fact"><span data-i18n="index.factAgeLabel">Age</span><strong>31</strong></span>
         </div>
+
+        <div class="audio-overview">
+          <button class="audio-overview__btn" type="button" aria-pressed="false" data-i18n-attrs="aria-label:index.audioOverviewAria">
+            <span class="audio-overview__icon" aria-hidden="true">&#9654;</span>
+            <span class="audio-overview__label audio-overview__label--play" data-i18n="index.audioOverviewPlay">Play overview</span>
+            <span class="audio-overview__label audio-overview__label--pause" data-i18n="index.audioOverviewPause" hidden>Pause overview</span>
+          </button>
+          <p class="audio-overview__note" data-i18n="index.audioOverviewNote">A two-minute, AI-narrated summary of this profile, in the language shown above.</p>
+          <audio class="audio-overview__player" preload="none" hidden></audio>
+        </div>
       </div>
 
       <div class="hero__scene hero__scene--video" data-reveal>

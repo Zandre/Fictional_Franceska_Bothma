@@ -11,6 +11,7 @@ A five-page static profile. No framework, no build step required, no data collec
       skills.html         Skills planted as a garden — click a bloom
       ambitions.html      Three growing trees + closing note
       assets/resume/      CV PDFs (EN/NL/AF) behind the header's Download CV button
+      media/              Hero animation video + the three audio overview files (EN/NL/AF)
       css/main.css        Compiled stylesheet (committed — open the HTML and it works)
       scss/               Source styles
         _tokens.scss      Colours, type, spacing, motion — change the look here
@@ -88,3 +89,14 @@ anything `main.js` reads off the DOM at setup already reflects the chosen
 language. Add a fourth language by adding another language code to each
 translation table and a matching button in the `.langs` control on every
 page.
+
+### Audio overview
+
+The "Play overview" button on the profile page's hero reveals a native audio
+player and starts an AI-narrated summary of the profile — only on that
+explicit click, never automatically. The file it plays matches the language
+active at the moment of the click (`media/audio-overview-en|nl|af.m4a`); if
+the language is changed again after playback has started, the change takes
+effect the next time playback is (re)started, not mid-track. All of it lives
+in `js/main.js`, guarded so it only runs where the `.audio-overview` markup
+is present.
