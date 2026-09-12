@@ -30,7 +30,11 @@
         seasonSummer: 'Summer',
         seasonAutumn: 'Autumn',
         langAria: 'Change the language',
-        footerNote: 'Franciska Bothma · The Netherlands<br>A profile, nothing more — no forms, no mailing list, no tracking. The only thing stored on your device is which season and language you picked.'
+        footerNote: 'Franciska Bothma · The Netherlands<br>A profile, nothing more — no forms, no mailing list, no tracking. The only thing stored on your device is which season and language you picked.',
+        resumeButton: 'Download CV',
+        resumeAria: 'Download CV as PDF (English)',
+        resumeHref: 'assets/resume/franciska-bothma-resume-en.pdf',
+        resumeFile: 'Franciska Bothma - CV (English).pdf'
       },
       nl: {
         skipLink: 'Ga naar de inhoud',
@@ -47,7 +51,11 @@
         seasonSummer: 'Zomer',
         seasonAutumn: 'Herfst',
         langAria: 'Taal wijzigen',
-        footerNote: 'Franciska Bothma · Nederland<br>Alleen een profiel, niets meer — geen formulieren, geen mailinglijst, geen tracking. Het enige dat op je apparaat wordt opgeslagen, is het seizoen en de taal die je hebt gekozen.'
+        footerNote: 'Franciska Bothma · Nederland<br>Alleen een profiel, niets meer — geen formulieren, geen mailinglijst, geen tracking. Het enige dat op je apparaat wordt opgeslagen, is het seizoen en de taal die je hebt gekozen.',
+        resumeButton: 'Cv downloaden',
+        resumeAria: 'Cv downloaden als PDF (Nederlands)',
+        resumeHref: 'assets/resume/franciska-bothma-resume-nl.pdf',
+        resumeFile: 'Franciska Bothma - CV (Nederlands).pdf'
       },
       af: {
         skipLink: 'Spring na die inhoud',
@@ -64,7 +72,11 @@
         seasonSummer: 'Somer',
         seasonAutumn: 'Herfs',
         langAria: 'Verander die taal',
-        footerNote: 'Franciska Bothma · Nederland<br>Net ’n profiel, niks meer nie — geen vorms, geen e-poslys, geen opsporing nie. Die enigste ding wat op jou toestel gestoor word, is die seisoen en taal wat jy gekies het.'
+        footerNote: 'Franciska Bothma · Nederland<br>Net ’n profiel, niks meer nie — geen vorms, geen e-poslys, geen opsporing nie. Die enigste ding wat op jou toestel gestoor word, is die seisoen en taal wat jy gekies het.',
+        resumeButton: 'Laai CV af',
+        resumeAria: 'Laai CV af as PDF (Afrikaans)',
+        resumeHref: 'assets/resume/franciska-bothma-resume-af.pdf',
+        resumeFile: 'Franciska Bothma - CV (Afrikaans).pdf'
       }
     },
 

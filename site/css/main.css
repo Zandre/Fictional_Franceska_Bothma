@@ -1,4 +1,4 @@
-/* Franciska Bothma — online profile
+/* Franceska Bothma — online profile
    Compiled from scss/main.scss  (sass scss/main.scss css/main.css --style=expanded)
    Edit the SCSS, not this file. */
 
@@ -450,6 +450,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ===== components ===== */
 
+
 .reveal {
   opacity: 1;
 }
@@ -466,10 +467,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   transform: none;
 }
 
+
 .js .is-visible .reveal:nth-child(2) { transition-delay: 90ms; }
 .js .is-visible .reveal:nth-child(3) { transition-delay: 180ms; }
 .js .is-visible .reveal:nth-child(4) { transition-delay: 270ms; }
 .js .is-visible .reveal:nth-child(5) { transition-delay: 360ms; }
+
 
 .cards {
   display: grid;
@@ -491,6 +494,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-color: #90b97b;
   transform: translateY(-3px);
 }
+
 
 .card::before {
   content: "";
@@ -530,6 +534,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.96rem;
 }
 
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -555,6 +560,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #8a5c14;
   background: rgba(246, 227, 189, 0.4);
 }
+
 
 .plate {
   padding: 13.8px;
@@ -607,6 +613,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #7c786f;
 }
 
+
 .seasons {
   display: flex;
   align-items: center;
@@ -636,6 +643,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #1b3013;
 }
 
+
 .langs {
   display: flex;
   align-items: center;
@@ -664,6 +672,32 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: #d8e7cb;
   color: #1b3013;
 }
+
+
+.resume-btn {
+  font-family: "Lora", Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-feature-settings: "tnum";
+  color: #3a6128;
+  display: inline-flex;
+  align-items: center;
+  padding: 9.2px 18.4px;
+  border: 1px solid #c68b2c;
+  border-radius: 100px;
+  color: #8a5c14;
+  background: rgba(246, 227, 189, 0.35);
+  white-space: nowrap;
+  transition: background 220ms cubic-bezier(0.33, 0.1, 0.25, 1), color 220ms cubic-bezier(0.33, 0.1, 0.25, 1), border-color 220ms cubic-bezier(0.33, 0.1, 0.25, 1);
+}
+
+.resume-btn:hover {
+  background: #c68b2c;
+  border-color: #c68b2c;
+  color: #f4f3f0;
+}
+
 
 .timeline {
   position: relative;
@@ -699,6 +733,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .role:first-of-type { border-top: 0; padding-top: 0; }
+
 
 .role__mark {
   position: absolute;
@@ -796,6 +831,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #44413b;
 }
 
+
 .role__list li::before {
   content: "";
   position: absolute;
@@ -837,6 +873,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin-bottom: 0;
   border-bottom: 0;
 }
+
 
 .garden {
   display: flex;
@@ -980,6 +1017,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin-block: 36.8px;
 }
 
+
 .rootplate {
   position: relative;
   height: 172px;
@@ -1079,6 +1117,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .rootplate__caption { max-width: 12rem; font-size: 0.85rem; }
 }
 
+
 .interests {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
@@ -1114,6 +1153,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.96rem;
   color: #44413b;
 }
+
 
 .ambitions {
   display: grid;
@@ -1189,6 +1229,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .seasons__opt { min-height: 40px; display: flex; align-items: center; }
   .langs { padding: 3px; }
   .langs__opt { min-height: 40px; display: flex; align-items: center; }
+  .resume-btn { min-height: 44px; }
   .nav-toggle { width: 2.75rem; height: 2.75rem; }
   .nav__link { min-height: 46px; display: flex; align-items: center; }
   .plant { min-height: 132px; }
@@ -1203,6 +1244,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .brand__name { font-size: 1.15rem; }
   .seasons__opt { padding-inline: 9.2px; font-size: 0.62rem; }
   .langs__opt { padding-inline: 9.2px; font-size: 0.62rem; }
+  .resume-btn { padding-inline: 13.8px; font-size: 0.62rem; }
   .bed { padding-inline: 18.4px; }
   .plant { width: calc(50% - 9.2px); }
   .interest__text { padding: 18.4px; }
@@ -1213,6 +1255,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ===== animations ===== */
+
+
 
 @keyframes wind {
   0%, 100% { background-position: 0 100%, 0 100%, 0 100%, 0 100%; }
@@ -1330,6 +1374,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   100% { transform: scale(1); opacity: 1; }
 }
 
+
+
 .scene {
   position: relative;
   width: 100%;
@@ -1412,6 +1458,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   );
 }
 
+
 .crops {
   position: absolute;
   left: 0;
@@ -1471,6 +1518,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .crop:nth-child(11) { animation-duration: 4.7s; animation-delay: -2.3s; height: 80%; }
 .crop:nth-child(12) { animation-duration: 5.1s; animation-delay: -0.6s; height: 92%; }
 
+
 .flower {
   position: absolute;
   bottom: 16%;
@@ -1514,6 +1562,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .flower--3 { left: 62%; height: 62px; animation-delay: -1.3s; }
 .flower--4 { left: 79%; height: 48px; animation-delay: -3.1s; }
 
+
 .bee {
   position: absolute;
   width: 13px;
@@ -1554,6 +1603,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .bee--b { top: 52%; left: 72%; animation: bee-path-b 19s ease-in-out infinite; }
 .bee--c { top: 22%; left: 46%; animation: bee-path-c 13s ease-in-out infinite; }
 
+
 .pollen {
   position: absolute;
   width: 3px;
@@ -1567,6 +1617,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pollen:nth-child(2) { left: 44%; bottom: 20%; animation-delay: -2.6s; }
 .pollen:nth-child(3) { left: 68%; bottom: 26%; animation-delay: -4.1s; }
 .pollen:nth-child(4) { left: 84%; bottom: 22%; animation-delay: -5.8s; }
+
 
 .petals {
   position: absolute;
@@ -1592,6 +1643,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .petal:nth-child(5) { left: 66%; animation-duration: 8.9s;  animation-delay: -3.6s; }
 .petal:nth-child(6) { left: 81%; animation-duration: 10.8s; animation-delay: -5.2s; }
 .petal:nth-child(7) { left: 93%; animation-duration: 9.2s;  animation-delay: -7.5s; background: #f6e3bd; }
+
 
 .bike-track {
   position: absolute;
@@ -1671,6 +1723,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1.5px solid #3a6128;
 }
 
+
 .water {
   position: absolute;
   inset: 0;
@@ -1704,6 +1757,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: rgba(244, 243, 240, 0.8);
   animation: sway-soft 2.2s ease-in-out infinite;
 }
+
 
 .pot {
   position: absolute;
@@ -1742,6 +1796,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .steam:nth-child(2) { left: calc(50% - 2px);  animation-delay: -1.4s; }
 .steam:nth-child(3) { left: calc(50% + 14px); animation-delay: -2.5s; }
 
+
 .bird {
   position: absolute;
   top: 22%;
@@ -1754,6 +1809,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .bird:nth-child(2) { top: 32%; animation-duration: 18s; animation-delay: -6s; transform: scale(0.8); }
 .bird:nth-child(3) { top: 15%; animation-duration: 21s; animation-delay: -11s; transform: scale(0.65); }
+
 
 .tree {
   position: relative;
@@ -1814,6 +1870,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .is-visible .tree__canopy--2 { animation-delay: 1600ms; }
 .is-visible .tree__canopy--3 { animation-delay: 1750ms; }
 
+
 .vine {
   display: block;
   overflow: visible;
@@ -1847,11 +1904,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .vine.is-visible circle:nth-of-type(2) { transition-delay: 1300ms; }
 .vine.is-visible circle:nth-of-type(3) { transition-delay: 1700ms; }
 
+
 .is-visible .role__mark span { animation: canopy-in 700ms cubic-bezier(0.22, 1.4, 0.36, 1) both; }
 .is-visible .role__mark span:nth-child(1) { animation-delay: 200ms; }
 .is-visible .role__mark span:nth-child(2) { animation-delay: 320ms; }
 .is-visible .role__mark span:nth-child(3) { animation-delay: 440ms; }
 .is-visible .role__mark span:nth-child(4) { animation-delay: 560ms; }
+
 
 .bed__row .plant:nth-child(1)  .plant__stalk { transition-delay: 0ms; }
 .bed__row .plant:nth-child(2)  .plant__stalk { transition-delay: 90ms; }
@@ -1871,6 +1930,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .bed__row .plant:nth-child(7)  .plant__bloom { transition-delay: 1040ms; }
 .bed__row .plant:nth-child(8)  .plant__bloom { transition-delay: 1130ms; }
 .bed__row .plant:nth-child(9)  .plant__bloom { transition-delay: 1220ms; }
+
 
 .meadow {
   position: absolute;
@@ -1909,6 +1969,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .site-footer { position: relative; }
 
+
 body[data-season="summer"] .tree__canopy,
 body[data-season="summer"] .hill--far { filter: saturate(1.25) brightness(0.95); }
 body[data-season="summer"] .crop::after { background: #c68b2c; }
@@ -1921,6 +1982,7 @@ body[data-season="autumn"] .crop::after { background: #8a5c14; }
 body[data-season="autumn"] .flower::before { border-color: #c68b2c; }
 body[data-season="autumn"] .meadow { filter: hue-rotate(-32deg) saturate(1.25); }
 body[data-season="summer"] .meadow { filter: saturate(1.2) brightness(0.94); }
+
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
