@@ -10,6 +10,7 @@ A five-page static profile. No framework, no build step required, no data collec
       interests.html      Six animated scenes
       skills.html         Skills planted as a garden — click a bloom
       ambitions.html      Three growing trees + closing note
+      assets/resume/      CV PDFs (EN/NL/AF) behind the header's Download CV button
       css/main.css        Compiled stylesheet (committed — open the HTML and it works)
       scss/               Source styles
         _tokens.scss      Colours, type, spacing, motion — change the look here

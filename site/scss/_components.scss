@@ -199,6 +199,26 @@
   color: green(900);
 }
 
+// --- Resume download CTA ---------------------------------------------------
+.resume-btn {
+  @include kicker;
+  display: inline-flex;
+  align-items: center;
+  padding: sp(2) sp(4);
+  border: 1px solid honey(500);
+  border-radius: 100px;
+  color: honey(700);
+  background: rgba(246, 227, 189, 0.35);
+  white-space: nowrap;
+  transition: background 220ms $ease-soft, color 220ms $ease-soft, border-color 220ms $ease-soft;
+}
+
+.resume-btn:hover {
+  background: honey(500);
+  border-color: honey(500);
+  color: $bg;
+}
+
 // --- Experience timeline --------------------------------------------------
 .timeline {
   position: relative;
@@ -695,6 +715,7 @@
   .seasons__opt { min-height: 40px; display: flex; align-items: center; }
   .langs { padding: 3px; }
   .langs__opt { min-height: 40px; display: flex; align-items: center; }
+  .resume-btn { min-height: 44px; }
   .nav-toggle { width: 2.75rem; height: 2.75rem; }
   .nav__link { min-height: 46px; display: flex; align-items: center; }
   .plant { min-height: 132px; }
@@ -709,6 +730,7 @@
   .brand__name { font-size: 1.15rem; }
   .seasons__opt { padding-inline: sp(2); font-size: 0.62rem; }
   .langs__opt { padding-inline: sp(2); font-size: 0.62rem; }
+  .resume-btn { padding-inline: sp(3); font-size: 0.62rem; }
   .bed { padding-inline: sp(4); }
   .plant { width: calc(50% - #{sp(2)}); }
   .interest__text { padding: sp(4); }
