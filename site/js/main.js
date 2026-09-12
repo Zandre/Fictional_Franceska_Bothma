@@ -126,6 +126,55 @@
     });
   });
 
+  /* --- Audio overview: plays only on an explicit click, never on its own -
+     The right-language file is resolved at the moment "Play overview" is
+     clicked (reading the language the switcher has set), not ahead of time,
+     so a later language switch is picked up next time playback starts. */
+  var audioBox = document.querySelector('.audio-overview');
+
+  if (audioBox) {
+    var audioBtn = audioBox.querySelector('.audio-overview__btn');
+    var audioIcon = audioBox.querySelector('.audio-overview__icon');
+    var audioPlayLabel = audioBox.querySelector('.audio-overview__label--play');
+    var audioPauseLabel = audioBox.querySelector('.audio-overview__label--pause');
+    var audioEl = audioBox.querySelector('.audio-overview__player');
+    var AUDIO_SRC = {
+      en: 'media/audio-overview-en.m4a',
+      nl: 'media/audio-overview-nl.m4a',
+      af: 'media/audio-overview-af.m4a'
+    };
+    var loadedLang = null;
+
+    var setPlayingState = function (isPlaying) {
+      audioBtn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+      if (audioPlayLabel) audioPlayLabel.hidden = isPlaying;
+      if (audioPauseLabel) audioPauseLabel.hidden = !isPlaying;
+      if (audioIcon) audioIcon.innerHTML = isPlaying ? '&#10074;&#10074;' : '&#9654;';
+    };
+
+    audioBtn.addEventListener('click', function () {
+      if (audioEl.paused) {
+        var lang = AUDIO_SRC[document.documentElement.lang] ? document.documentElement.lang : 'en';
+        if (loadedLang !== lang) {
+          audioEl.src = AUDIO_SRC[lang];
+          loadedLang = lang;
+        }
+        audioEl.hidden = false;
+        audioEl.setAttribute('controls', '');
+        audioEl.play();
+      } else {
+        audioEl.pause();
+      }
+    });
+
+    audioEl.addEventListener('play', function () { setPlayingState(true); });
+    audioEl.addEventListener('pause', function () { setPlayingState(false); });
+    audioEl.addEventListener('ended', function () {
+      audioEl.currentTime = 0;
+      setPlayingState(false);
+    });
+  }
+
   /* --- Hero video: respect reduced motion -------------------------------- */
   var heroVideo = document.querySelector('.hero__video');
 
